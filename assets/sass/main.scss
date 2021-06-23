@@ -77,6 +77,20 @@
 
 	body {
 		-webkit-text-size-adjust: none;
+		&::-webkit-scrollbar {
+			display: block;
+			width: 10px;
+			background-color: $dark-olive;
+		}
+	
+		&::-webkit-scrollbar-thumb {
+			display: block;
+			background-color: darken($dark-olive, 20%);
+		}
+		&::-webkit-scrollbar-track {
+			display: block;
+			background-color: transparent;
+		}
 	}
 
 	mark {
@@ -1156,7 +1170,7 @@
 
 	.features {
 		article {
-			border-top: solid (_size(border-width) * 1.5) _palette(border);
+			// border-top: solid (_size(border-width) * 1.5) _palette(border);
 			margin-bottom: _size(element-margin);
 			padding-top: _size(element-margin);
 

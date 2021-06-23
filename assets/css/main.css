@@ -55,6 +55,22 @@ body {
   -webkit-text-size-adjust: none;
 }
 
+body::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+  background-color: #4E5A45;
+}
+
+body::-webkit-scrollbar-thumb {
+  display: block;
+  background-color: #1c2019;
+}
+
+body::-webkit-scrollbar-track {
+  display: block;
+  background-color: transparent;
+}
+
 mark {
   background-color: transparent;
   color: inherit;
@@ -2522,7 +2538,6 @@ input[type="button"]:disabled,
 
 /* Features */
 .features article {
-  border-top: solid 3px #e9e9e2;
   margin-bottom: 2.25em;
   padding-top: 2.25em;
 }
