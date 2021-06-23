@@ -1,0 +1,74 @@
+// #06312d: #06312d;
+
+$hunter-green: #06312d;
+$dark-olive: #4E5A45;
+$bole: #70483e;
+$sage: #C2C1AD;
+$cornsilk: #fff2d3;
+
+
+
+// Misc.
+	$misc: (
+		z-index-base:		10000,
+		header-side:		'right'
+	);
+
+// Duration.
+	$duration: (
+		header:				0.5s,
+		transition:			0.2s
+	);
+
+// Size.
+	$size: (
+		border-radius:		5px,
+		border-width:		2px,
+		element-height:		2.75em,
+		element-margin:		2.25em,
+		container-width:	45em
+	);
+
+// Font.
+	$font: (
+		family:				('Lato', sans-serif),
+		family-fixed:		('Source Code Pro', monospace),
+		weight:				400,
+		weight-bold:		700
+	);
+
+// Palette.
+	$palette: (
+		bg:					$cornsilk,
+		fg:					darken($dark-olive, 10%),
+		fg-bold:			#777,
+		fg-light:			#aaa,
+		border:				lighten($sage, 18%),
+		border-bg:			#fafafa,
+		border2:			#e4e4e4,
+		border2-bg:			#f4f4f4,
+		border3:			#e0e0e0,
+		border3-bg:			#eaeaea,
+
+		accent1: (
+			bg:				$bole,
+			fg-bold:		lighten($cornsilk, 5%),
+			fg:				mix($hunter-green, #ffffff, 25%),
+			fg-light:		mix($bole, #ffffff, 40%)
+		),
+
+		accent2: (
+			bg:				#989898,
+			fg-bold:		#ffffff,
+			fg:				mix(#131313, #ffffff, 25%),
+			fg-light:		mix(#989898, #ffffff, 40%)
+		),
+
+		header: (
+			bg:				$dark-olive,
+			fg-bold:		lighten($cornsilk, 5%),
+			fg:				mix($hunter-green, lighten($dark-olive, 50%), 25%),
+			fg-light:		mix($hunter-green, lighten($cornsilk, 5%), 40%),
+			border:			mix(lighten($dark-olive, 5%), lighten($cornsilk, 5%), 90%)
+		)
+	);
