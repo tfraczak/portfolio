@@ -119,6 +119,10 @@ a:hover {
   padding: 5px;
 }
 
+.g-recaptcha > .rc-anchor-error-msg {
+  font-size: 8px;
+}
+
 strong, b {
   color: #777;
   font-weight: 700;

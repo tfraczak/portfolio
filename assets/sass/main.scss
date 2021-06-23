@@ -144,6 +144,9 @@
 	.g-recaptcha {
 		height: auto;
 		padding: 5px;
+		& > .rc-anchor-error-msg {
+			font-size: 8px;
+		}
 	}
 
 	strong, b {
