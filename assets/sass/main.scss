@@ -131,13 +131,13 @@
 
 	a {
 		@include vendor('transition', ('color #{_duration(transition)} ease-in-out', 'border-color #{_duration(transition)} ease-in-out'));
-		border-bottom: solid 1px _palette(border2);
-		color: inherit;
+		// border-bottom: solid 1px _palette(border2);
+		color: darken($sage, 30%);
 		text-decoration: none;
 
 		&:hover {
 			border-bottom-color: transparent;
-			color: _palette(accent1, bg) !important;
+			color: $bole !important;
 		}
 	}
 
