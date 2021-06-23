@@ -35,7 +35,6 @@
 					<h1 id="logo"><a href="#">Timothy Fraczak</a></h1>
 					<p>Software engineer<br />
 					Hot sauceologist</p>
-					<a id="resume" href="./images/tim-fraczak-resume.pdf" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a>
 				</header>
 				<nav id="nav">
 					<ul>
@@ -51,6 +50,7 @@
 						<li><a href="https://github.com/tfraczak" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						<li><a href="https://angel.co/u/tfraczak" target="_blank" class="icon brands fa-angellist"><span class="label">AngelList</span></a></li>
 						<li><a href="https://pepplish.com/" target="_blank" class="icon solid fa-pepper-hot"><span class="label">Pepplish</span></a></li>
+						<li><a href="./images/tim-fraczak-resume.pdf" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
 					</ul>
 				</footer>
 			</section>
@@ -532,18 +532,16 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				const delays = [delay, delay*2, delay*4, delay*6];
 				
 				let i = 1;
-				const success = "Thanks for your submission!";
+				const thanks = "Thanks for your submission!";
 				const failed = "Oops! There was a problem submitting your form";
-				function type(text) { 
-					() => {
-						status.innerHTML = text.substr(0, i);
-						i++;
-						if (i > text.length) {
-							i = 1;
-							return;
-						} else {
-							setTimeout(type(text), delays[Math.floor(Math.random()*delays.length)]);
-						}
+				function success() { 
+					status.innerHTML = thanks.substr(0, i);
+					i++;
+					if (i > thanks.length) {
+						i = 1;
+						return;
+					} else {
+						setTimeout(type(), delays[Math.floor(Math.random()*delays.length)]);
 					}
 				};
 
@@ -571,7 +569,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						}
 					}).then(response => {
 						// status.innerHTML = "Thanks for your submission!";
-						type(success);
+						sucess();
 						form.reset();
 					}).catch(error => {
 						failure();
