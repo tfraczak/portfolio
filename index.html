@@ -532,15 +532,29 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				const delays = [delay, delay*2, delay*4, delay*6];
 				
 				let i = 1;
-				const text = "Thanks for your submission!"
-				function type() {
-					status.innerHTML = text.substr(0, i);
+				const success = "Thanks for your submission!";
+				const failed = "Oops! There was a problem submitting your form";
+				function type(text) { 
+					() => {
+						status.innerHTML = text.substr(0, i);
+						i++;
+						if (i > text.length) {
+							i = 1;
+							return;
+						} else {
+							setTimeout(type(text), delays[Math.floor(Math.random()*delays.length)]);
+						}
+					}
+				};
+
+				function failure() {
+					status.innerHTML = failed.substr(0, i);
 					i++;
-					if (i > text.length) {
+					if (i > failed.length) {
 						i = 1;
 						return;
 					} else {
-						setTimeout(type, delays[Math.floor(Math.random()*delays.length)]);
+						setTimeout(failure, delays[Math.floor(Math.random()*delays.length)]);
 					}
 				};
 
@@ -557,12 +571,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						}
 					}).then(response => {
 						// status.innerHTML = "Thanks for your submission!";
-						type();
+						type(success);
 						form.reset();
 					}).catch(error => {
-						status.innerHTML = "Oops! There was a problem submitting your form"
+						failure();
 					});
 				}
+
 				form.addEventListener("submit", handleSubmit);
 				reset.addEventListener("click", handleReset);
 				
