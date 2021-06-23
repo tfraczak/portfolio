@@ -114,6 +114,11 @@ a:hover {
   color: #70483e !important;
 }
 
+.g-recaptcha {
+  height: auto;
+  width: auto;
+}
+
 strong, b {
   color: #777;
   font-weight: 700;

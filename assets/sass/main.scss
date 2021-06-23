@@ -141,6 +141,11 @@
 		}
 	}
 
+	.g-recaptcha {
+		height: auto;
+		width: auto;
+	}
+
 	strong, b {
 		color: _palette(fg-bold);
 		font-weight: _font(weight-bold);
