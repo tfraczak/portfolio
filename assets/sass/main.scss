@@ -1233,6 +1233,11 @@
 			&:hover {
 				color: _palette(header, fg-bold) !important;
 			}
+
+			&#resume {
+				font-size: 32px;
+			}
+
 		}
 
 		> header {
@@ -1328,7 +1333,7 @@
 
 	#main {
 		> section {
-			border-top: solid (_size(border-width) * 3) _palette(border);
+			// border-top: solid (_size(border-width) * 3) _palette(border);
 
 			> .container {
 				padding: 6em 0 4em 0;
