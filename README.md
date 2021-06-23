@@ -1,7 +1,7 @@
 <a style="width: 100%; display: flex; justify-content: center;" href="https://tfraczak.github.io/portfolio" target="_blank"><img src="images/avatar.jpg" style="height: 200px;"></a>  
-<h2 style="text-align: center;"> 
+<h3 style="text-align: center;"> 
 	Welcome to my portfolio site! Here, I discuss myself, my projects, and skills. You can check it out <a href="https://tfraczak.github.io/portfolio" target="_blank">here</a>.
-</h2>
+</h3>
 
 
 <br />
