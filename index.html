@@ -159,7 +159,7 @@
 													<li><input type="reset" value="Reset Form" /></li>
 													<h5 id="my-form-status" type="text"></h5>
 												</ul>
-												<div class="g-recaptcha" data-sitekey="6LfowVAbAAAAAH9MPV79tAbY1tXIh2IHlIfDJnuM"></div>
+												<!-- <div class="g-recaptcha" data-sitekey="6LfowVAbAAAAAH9MPV79tAbY1tXIh2IHlIfDJnuM"></div> -->
 											</div>
 										</div>
 									</form>
@@ -533,7 +533,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				
 				let i = 1;
 				const thanks = "Thanks for your submission!";
-				const failed = "Oops! There was a problem submitting your form";
+				const failed = "Oops! There was a problem submitting your form.";
 				function success() { 
 					status.innerHTML = thanks.substr(0, i);
 					i++;
@@ -541,7 +541,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						i = 1;
 						return;
 					} else {
-						setTimeout(type(), delays[Math.floor(Math.random()*delays.length)]);
+						setTimeout(success, delays[Math.floor(Math.random()*delays.length)]);
 					}
 				};
 
@@ -568,7 +568,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								'Accept': 'application/json'
 						}
 					}).then(response => {
-						// status.innerHTML = "Thanks for your submission!";
 						success();
 						form.reset();
 					}).catch(error => {
