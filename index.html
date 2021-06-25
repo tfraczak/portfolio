@@ -524,12 +524,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 			<script>
 				window.onload = function() { 
-					var el = document.getElementById('g-recaptcha-response'); 
+					const el = document.getElementById('g-recaptcha-response'); 
 					el?.setAttribute('required', 'required'); 
 				}
 
-				
-				var form = document.getElementById("my-form");
+				const form = document.getElementById("my-form");
 				
 				const status = document.getElementById("my-form-status");
 				const reset = document.querySelector("input[type='reset'");
@@ -570,10 +569,30 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				const delays = [delay, delay*2, delay*4, delay*6];
 				
 				let i = 1;
+				
 				const thanks = "Thanks for your submission!";
 				const failed = "Oops! There was a problem submitting your form.";
 				const notComplete = "Please fill out all fields.";
 				
+				const formMessage = {
+					thanks,
+					failed,
+					notComplete
+				};
+
+				function type(msg) {
+					return function step() {
+						status.innerHTML = msg.substr(0, i);
+						i++;
+						if (i > msg.length) {
+							i = 1;
+							return;
+						} else {
+							setTimeout(step, delays[Math.floor(Math.random()*delays.length)]);
+						}
+					};
+				};
+
 				function notFilledOut() {
 					status.innerHTML = notComplete.substr(0, i);
 					i++;
@@ -632,7 +651,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						Object.values(formFields).forEach(node => {
 							if (!node.value) node.classList.add("required");
 						});
-						notFilledOut();
+						type(formMessage.notComplete);
 					}
 				}
 
