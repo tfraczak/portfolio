@@ -153,10 +153,10 @@
 									<p>Looking to hire an awesome software engineer? Or just looking to connect? Send me an email and I'll see what we can do.</p>
 									<form id="my-form" method="POST" action="https://formspree.io/f/xqkwbrdr">
 										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name *" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email *" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject *" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message *" rows="6"></textarea></div>
 											<div class="col-12">
 												<ul class="actions">
 													<li><input disabled type="submit" id="submit" class="primary" value="Send Message" /></li>
@@ -539,6 +539,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				subject = document.getElementById("subject");
 				message = document.getElementById("message");
 				submit = document.getElementById("submit");
+				const formFields = [name, email, subject, message];
 				
 				function captchaCb() {
 					submit.disabled = false;
@@ -550,6 +551,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				function handleReset(e) {
 					status.innerHTML = "";
+					formFields.forEach(node => {
+						node.classList.remove("required");
+					});
 				};
 
 				const delay = 30;
@@ -558,6 +562,19 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				let i = 1;
 				const thanks = "Thanks for your submission!";
 				const failed = "Oops! There was a problem submitting your form.";
+				const notComplete = "Please fill out all fields.";
+				
+				function notFilledOut() {
+					status.innerHTML = notComplete.substr(0, i);
+					i++;
+					if (i > notComplete.length) {
+						i = 1;
+						return;
+					} else {
+						setTimeout(success, delays[Math.floor(Math.random()*delays.length)]);
+					}
+				}
+				
 				function success() { 
 					status.innerHTML = thanks.substr(0, i);
 					i++;
@@ -582,21 +599,31 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				async function handleSubmit(event) {
 					event.preventDefault();
-
-					var data = new FormData(event.target);
-
-					fetch(event.target.action, {
-						method: form.method,
-						body: data,
-						headers: {
-								'Accept': 'application/json'
-						}
-					}).then(response => {
-						success();
-						form.reset();
-					}).catch(error => {
-						failure();
+					status.innerHTML = "";
+					formFields.forEach(node => {
+						node.classList.remove("required");
 					});
+					if (name.value && email.value && subject.value && message.value) {
+						var data = new FormData(event.target);
+	
+						fetch(event.target.action, {
+							method: form.method,
+							body: data,
+							headers: {
+									'Accept': 'application/json'
+							}
+						}).then(response => {
+							success();
+							form.reset();
+						}).catch(error => {
+							failure();
+						});
+					} else {
+						formFields.forEach(node => {
+							if (!node.value) node.classList.add("required");
+						});
+						notFilledOut();
+					}
 				}
 
 				form.addEventListener("submit", handleSubmit);
