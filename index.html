@@ -580,8 +580,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					notComplete
 				};
 
-				const type = msg => {
-					return () => {
+				function type(msg) {
+					return function() {
 						status.innerHTML = msg.substr(0, i);
 						i++;
 						if (i > msg.length) {
