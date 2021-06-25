@@ -523,21 +523,18 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
-				window.onload = function() { 
-					const el = document.getElementById('g-recaptcha-response'); 
-					el?.setAttribute('required', 'required'); 
-				}
 
 				const form = document.getElementById("my-form");
 				
 				const status = document.getElementById("my-form-status");
 				const reset = document.querySelector("input[type='reset'");
-				let name, email, subject, message, submit, captcha;
+				let name, email, subject, message, submit, captchaChecked;
 				name = document.getElementById("name");
 				email = document.getElementById("email");
 				subject = document.getElementById("subject");
 				message = document.getElementById("message");
 				submit = document.getElementById("submit");
+				captchaChecked = false;
 				const formFields = {
 					name,
 					email,
@@ -547,10 +544,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				
 				function captchaCb() {
 					submit.disabled = false;
+					captchaChecked = true;
 				};
 
 				function captchaExp() {
 					submit.disabled = true;
+					captchaChecked = false;
 				};
 
 				function handleReset(e) {
