@@ -3161,5 +3161,5 @@ input[type="button"]:disabled,
 }
 
 .required {
-  border: 1px solid #70483e !important;
+  border: 1px solid #e60f00 !important;
 }
