@@ -118,6 +118,10 @@ body, input, select, textarea {
   line-height: 1.75em;
 }
 
+#submit:disabled {
+  cursor: not-allowed;
+}
+
 a {
   -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;

@@ -143,6 +143,12 @@
 		line-height: 1.75em;
 	}
 
+	#submit {
+		&:disabled {
+			cursor: not-allowed;
+		}
+	}
+
 	a {
 		@include vendor('transition', ('color #{_duration(transition)} ease-in-out', 'border-color #{_duration(transition)} ease-in-out'));
 		// border-bottom: solid 1px _palette(border2);
@@ -1154,6 +1160,7 @@
 			&:active {
 				background-color: darken(_palette(accent1, bg), 5);
 			}
+
 		}
 
 		&.disabled,

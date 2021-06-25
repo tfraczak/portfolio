@@ -153,13 +153,13 @@
 									<p>Looking to hire an awesome software engineer? Or just looking to connect? Send me an email and I'll see what we can do.</p>
 									<form id="my-form" method="POST" action="https://formspree.io/f/xqkwbrdr">
 										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-6 col-12-xsmall"><input oninput="handleChange()" type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input oninput="handleChange()" type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input oninput="handleChange()" type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea oninput="handleChange()" name="message" id="message" placeholder="Message" rows="6"></textarea></div>
 											<div class="col-12">
 												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input disabled type="submit" id="submit" class="primary" value="Send Message" /></li>
 													<li><input type="reset" value="Reset Form" /></li>
 													<h5 id="my-form-status" type="text"></h5>
 												</ul>
@@ -525,15 +525,31 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script>
 				window.onload = function() { 
 					var el = document.getElementById('g-recaptcha-response'); 
-					if (el) { 
-						el.setAttribute('required', 'required'); 
-					} 
+					el?.setAttribute('required', 'required'); 
 				}
-				var form = document.getElementById("my-form");
 
+				
+				var form = document.getElementById("my-form");
+				
 				const status = document.getElementById("my-form-status");
 				const reset = document.querySelector("input[type='reset'");
+				let name, email, subject, message, submit, captcha;
+				name = document.getElementById("name");
+				email = document.getElementById("email");
+				subject = document.getElementById("subject");
+				message = document.getElementById("message");
+				submit = document.getElementById("submit");
+				captcha = document.getElementById('g-recaptcha-response');
 				
+				function handleChange() {
+					debugger
+					if (name.value && email.value && subject.value && message.value && captcha?.checked === true) {
+						submit.disabled = false;
+					} else {
+						submit.disabled = true;
+					}
+				}
+
 				function handleReset(e) {
 					status.innerHTML = "";
 				};
@@ -587,6 +603,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				form.addEventListener("submit", handleSubmit);
 				reset.addEventListener("click", handleReset);
+				name.addEventListener("change", handleChange);
+				subject.addEventListener("change", handleChange);
+				email.addEventListener("change", handleChange);
+				message.addEventListener("change", handleChange);
 				
 		</script>
 
