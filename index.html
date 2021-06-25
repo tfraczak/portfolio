@@ -539,7 +539,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				subject = document.getElementById("subject");
 				message = document.getElementById("message");
 				submit = document.getElementById("submit");
-				const formFields = [name, email, subject, message];
+				const formFields = {
+					name,
+					email,
+					subject,
+					message
+				};
 				
 				function captchaCb() {
 					submit.disabled = false;
@@ -551,7 +556,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				function handleReset(e) {
 					status.innerHTML = "";
-					formFields.forEach(node => {
+					Object.values(formFields).forEach(node => {
 						node.classList.remove("required");
 					});
 				};
@@ -606,7 +611,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				async function handleSubmit(event) {
 					event.preventDefault();
 					status.innerHTML = "";
-					formFields.forEach(node => {
+					Object.values(formFields).forEach(node => {
 						node.classList.remove("required");
 					});
 					if (name.value && email.value && subject.value && message.value) {
@@ -625,7 +630,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							failure();
 						});
 					} else {
-						formFields.forEach(node => {
+						Object.values(formFields).forEach(node => {
 							if (!node.value) node.classList.add("required");
 						});
 						notFilledOut();
@@ -634,10 +639,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				form.addEventListener("submit", handleSubmit);
 				reset.addEventListener("click", handleReset);
-				name.addEventListener("change", handleChange);
-				email.addEventListener("change", handleChange);
-				subject.addEventListener("change", handleChange);
-				message.addEventListener("change", handleChange);
+				name.addEventListener("oninput", handleChange);
+				email.addEventListener("oninput", handleChange);
+				subject.addEventListener("oninput", handleChange);
+				message.addEventListener("oninput", handleChange);
 				
 		</script>
 
