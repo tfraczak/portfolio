@@ -1990,5 +1990,7 @@
 	}
 
 	.required {
-		border: 1px solid rgb(230, 15, 0) !important;
+		border-radius: _size(border-radius);
+		border: none;
+		border: solid _size(border-width) rgb(241, 60, 28) !important;
 	}
