@@ -543,17 +543,23 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				
 				function captchaCb() {
 					submit.disabled = false;
-				}
+				};
 
 				function captchaExp() {
 					submit.disabled = true;
-				}
+				};
 
 				function handleReset(e) {
 					status.innerHTML = "";
 					formFields.forEach(node => {
 						node.classList.remove("required");
 					});
+				};
+
+				function handleChange(e) {
+					if (e.classList.contains("required")) {
+						e.classList.remove("required");
+					}
 				};
 
 				const delay = 30;
@@ -628,6 +634,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				form.addEventListener("submit", handleSubmit);
 				reset.addEventListener("click", handleReset);
+				name.addEventListener("change", handleChange);
+				email.addEventListener("change", handleChange);
+				subject.addEventListener("change", handleChange);
+				message.addEventListener("change", handleChange);
 				
 		</script>
 
