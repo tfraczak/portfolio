@@ -651,7 +651,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						Object.values(formFields).forEach(node => {
 							if (!node.value) node.classList.add("required");
 						});
-						type(formMessage.notComplete);
+						notFilledOut();
 					}
 				}
 
