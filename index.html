@@ -523,6 +523,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
+				window.onload = function() { 
+					var el = document.getElementById('g-recaptcha-response'); 
+					if (el) { 
+						el.setAttribute('required', 'required'); 
+					} 
+				}
 				var form = document.getElementById("my-form");
 
 				const status = document.getElementById("my-form-status");
