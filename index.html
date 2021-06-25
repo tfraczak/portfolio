@@ -562,9 +562,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				};
 
 				function handleChange(e) {
-					if (e.classList.contains("required")) {
-						e.classList.remove("required");
-					}
+					formFields[e.currentTarget.name].classList.remove("required");
 				};
 
 				const delay = 30;
