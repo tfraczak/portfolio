@@ -163,7 +163,7 @@
 													<li><input type="reset" value="Reset Form" /></li>
 													<h5 id="my-form-status" type="text"></h5>
 												</ul>
-												<div class="g-recaptcha" data-callback="captchaCb" data-sitekey="6LfowVAbAAAAAH9MPV79tAbY1tXIh2IHlIfDJnuM"></div>
+												<div class="g-recaptcha" data-expired-callback="captchaExp" data-callback="captchaCb" data-sitekey="6LfowVAbAAAAAH9MPV79tAbY1tXIh2IHlIfDJnuM"></div>
 											</div>
 										</div>
 									</form>
@@ -544,12 +544,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					submit.disabled = false;
 				}
 
-				function handleChange() {
-					if (name.value && email.value && subject.value && message.value) {
-						submit.disabled = false;
-					} else {
-						submit.disabled = true;
-					}
+				function captchaExp() {
+					submit.disabled = true;
 				}
 
 				function handleReset(e) {
