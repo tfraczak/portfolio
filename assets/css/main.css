@@ -2279,7 +2279,7 @@ ul.feature-icons li:before {
 ul.feature-icons li:before {
   background: #70483e;
   border-radius: 100%;
-  color: #fffaed;
+  color: #fff2d3;
   display: block;
   height: 2.5em;
   left: 0;
@@ -2508,7 +2508,7 @@ input[type="reset"].primary,
 input[type="button"].primary,
 .button.primary {
   background-color: #70483e;
-  color: #fffaed !important;
+  color: #fff2d3 !important;
 }
 
 input[type="submit"].primary:hover,
@@ -2968,7 +2968,7 @@ input[type="button"]:disabled,
   }
   #titleBar .toggle:before {
     background: #70483e;
-    color: #fffaed;
+    color: #fff2d3;
     content: '\f0c9';
     display: block;
     font-size: 18px;

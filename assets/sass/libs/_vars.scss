@@ -52,7 +52,7 @@ $cornsilk: #fff2d3;
 
 		accent1: (
 			bg:				$bole,
-			fg-bold:		lighten($cornsilk, 5%),
+			fg-bold:		$cornsilk,
 			fg:				mix($hunter-green, #ffffff, 25%),
 			fg-light:		mix($bole, #ffffff, 40%)
 		),
